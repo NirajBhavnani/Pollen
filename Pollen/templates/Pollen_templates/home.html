@@ -1,0 +1,32 @@
+{% extends "Pollen_templates/base.html" %}
+{% load static %}
+{% block content %}
+	<div class="hero" data-bg-image="{% static 'Pollen/images/dark.png' %}">
+    <main class="main-content">
+
+				<div class="fullwidth-block">
+					<div class="container">
+						<div class="row">
+							<div>
+								<div class="post">
+									<h2 class="entry-title">Prediction & Classification</h2>
+									<!-- <div class="featured-image"><img src="images/featured-image-1.jpg" alt=""></div> -->
+									<h3>Forecasting Airborne Pollen Concentration</h3>
+									<p style="font-size: 18px; text-align: justify;text-justify: inter-word;">
+									Pollen count is the concerntration of pollen grains in cubic meter of air. Each spring, summer, and autumn, pollen grains are released from trees, weeds, and grasses. Despite the fact that their main 
+									goal is to fertilize different plants, many never arrive at their objectives. Instead, they enter human noses and throats and many people have an adverse effects due to the same. Our system act as helping hand for those people. One can get the predifted count for next two days and can plan their outings accordingly.</p>
+									<h4><a href="/predict" class="button">Predict</a></h4><br><br>
+									<h3>Classifying Pollen Taxa</h3>
+									<p style="font-size: 18px; text-align: justify;text-justify: inter-word;">
+									Pollen is released from many plants and trees near us. The infected ones need to know about the same for maintaining their healthy routine. Our system provides a way to help them by letting them upload a picture of the source and system will classify the source and will provide information to the user about the same.</p>
+									<h4><a href="/classify" class="button">Classify</a></h4>
+								</div>
+
+							</div>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main> <!-- .main-content -->
+{% endblock content %}

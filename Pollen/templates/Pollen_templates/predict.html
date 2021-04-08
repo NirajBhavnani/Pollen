@@ -1,0 +1,197 @@
+{% extends "Pollen_templates/base.html" %}
+{% load static %}
+{% block content %}
+
+
+			<div class="hero" data-bg-image="{% static 'Pollen/images/pollen.jpg' %}">
+				<div class="container">
+					<div class="breadcrumb">
+						<a href="/">Home</a>
+						<span>Predict</span>
+					</div>
+				</div>
+				<div class="container">
+					<form action="{% url 'Pollen:predictCity' %}" method="POST">
+				      {% csrf_token %}
+				      <div class="form-group">
+				        <select class="form-control" name="selectCity">
+				          <option selected disabled>Select a City</option>
+				          <option value="Mumbai">Mumbai</option>
+				          <option value="Delhi">Delhi</option>
+				          <option value="Kolkata">Kolkata</option>
+				          <option value="Jammu">Jammu</option>
+				          <!-- <option value="Kanyakumari">Kanyakumari</option> -->
+				        </select>
+				      </div>
+				      <button type="submit" class="btn btn-primary">Predict Now!</button>
+				      <div class="btn-group float-right" role="group" aria-label="Basic mixed styles example">
+					  <button type="button" class="btn btn-success">Grass</button>
+					  <button type="button" class="btn btn-warning">Tree</button>
+					  <button type="button" class="btn btn-danger">Weed</button>
+					</div>
+				    </form>
+				</div>
+			</div><br><br>
+			<div class="forecast-table">
+				<div class="container">
+					<div class="forecast-container">
+
+						{% if city %}
+            	
+				<!-- Day 1 -->
+						<div class="today forecast">
+							<div class="forecast-header">
+								<div class="day">{{day}}</div>
+								<div class="date">{{date1}}</div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="location">{{city}}</div>
+								<div class="degree">
+									<div class="num"><!-- <sup>o</sup>C --></div>
+									<div class="forecast-icon">
+										<h2 style="padding-top: 10px;">
+										 <span class="dot1">{{day1.0|floatformat:2}}</span> 
+										 <span class="dot2">{{day1.1|floatformat:2}}</span>  
+										 <span class="dot3">{{day1.2|floatformat:2}} </span> </h2>
+									</div>	
+								</div>
+								
+								<span><small>{{temp.0}}<sup>o</sup></small></span>
+								
+							</div>
+						</div>
+
+
+						<!-- Day 2 -->
+						<div class="forecast">
+							<div class="forecast-header">
+								<div class="day">{{day_2}}</div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="forecast-icon">
+										<h2 style="padding-top: 10px;">
+										 <span class="dot1">{{day2.0|floatformat:2}}</span> 
+										 <span class="dot2">{{day2.1|floatformat:2}}</span>  
+										 <span class="dot3">{{day2.2|floatformat:2}}</span>  </h2>
+									</div>
+								<div class="degree"><!-- <sup>o</sup>C --></div>
+								<small>{{temp.1}}<sup>o</sup></small>
+							</div>
+						</div>
+
+						<!-- Day 3 -->
+						<div class="forecast">
+							<div class="forecast-header">
+								<div class="day">{{day_3}}</div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="forecast-icon">
+										<h2 style="padding-top: 10px;">
+										 <span class="dot1">{{day3.0|floatformat:2}}</span> 
+										 <span class="dot2">{{day3.1|floatformat:2}}</span>  
+										 <span class="dot3">{{day3.2|floatformat:2}}</span>  </h2>
+								</div>
+								<div class="degree"><!-- <sup>o</sup>C --></div>
+								<small>{{temp.2}}<sup>o</sup></small>
+							</div>
+						</div>
+            	
+        		{% else %}
+
+        		<!-- Day 1 -->
+						<div class="today forecast">
+							<div class="forecast-header">
+								<div class="day">NULL</div>
+								<div class="date">NULL</div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="location">NULL</div>
+								<div class="degree">
+									<!-- <div class="number1">NULL</div> -->
+									<div class="forecast-icon">
+										<h2 style="padding-top: 10px;"> <span class="dot1">0.0</span> <span class="dot2">0.0</span>  <span class="dot3">0.0</span>  </h2>
+									</div>	
+								</div>
+								<span><small>(Unit of Pollen Count: cubic meter)</small></span>
+							</div>
+						</div>
+
+
+						<!-- Day 2 -->
+						<div class="forecast">
+							<div class="forecast-header">
+								<div class="day">NULL</div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+									<div class="forecast-icon">
+										<h2 style="padding-top: 10px;"> <span class="dot1">0.0</span> <span class="dot2">0.0</span>  <span class="dot3">0.0</span>  </h2>
+									</div>
+								<div class="degree">NULL<!-- <sup>o</sup>C --></div>
+								<small>NULL<sup>o</sup></small>
+							</div>
+						</div>
+
+						<!-- Day 3 -->
+						<div class="forecast">
+							<div class="forecast-header">
+								<div class="day">NULL</div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="forecast-icon">
+										<h2 style="padding-top: 10px;"> <span class="dot1">0.0</span> <span class="dot2">0.0 </span> <span class="dot3">0.0</span>  </h2>
+									</div>
+								<div class="degree">NULL<!-- <sup>o</sup>C --></div>
+								<small>NULL<sup>o</sup></small>
+							</div>
+						</div>
+
+      			{% endif %}
+
+						
+						
+						</div>
+					</div>
+				</div>
+
+			<main class="main-content">
+
+				<div class="fullwidth-block">
+					<div class="container">
+						<h2 class="section-title">{{date1}} - {{day}}</h2>
+						<div class="row">
+							<div class= "col-sm-6">
+								<div class="live-camera">
+
+									<h3>The pollen count is 227, the temperature is 32<sup>o</sup>C</h3>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+
+				<div class="fullwidth-block" data-bg-color="#262936">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="news">
+									<div class="date"></div>
+									<h2>{{day_2}}</h2>
+									<p style="font-size: 18px; text-align: justify;text-justify: inter-word;">The pollen count is 228, the temperature is 35</p>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="news">
+									<div class="date"></div>
+									<h2>{{day_3}}</h2>
+									<p style="font-size: 18px; text-align: justify;text-justify: inter-word;">The pollen count is 277, the temperature is 33</p>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+
+			</main> <!-- .main-content -->
+{% endblock content %}
+

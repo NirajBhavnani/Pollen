@@ -1,0 +1,52 @@
+{% extends "Pollen_templates/base.html" %}
+{% load static %}
+{% block content %}
+	<div class="hero" data-bg-image="{% static 'Pollen/images/dark.png' %}">
+    
+	<main class="main-content">
+				<div class="container">
+					<div class="breadcrumb">
+						<a href="/">Home</a>
+						<span>Classify</span>
+					</div>
+				</div>
+
+				<div class="fullwidth-block">
+					<div class="container">
+						<div class="col-md-5">
+							<div class="contact-details">
+								<h2 class="entry-title" style="padding-left: 25px; padding-top: 10px;">Taxa: {{taxa}}</h2>
+									
+								<div>
+									<img src="{{img1.photo.url}}" alt="" height="250px" style="padding-left: 25px; padding-bottom: 25px;">
+								</div>
+								<p style="padding-left: 25px; padding-right: 25px; text-align: justify;text-justify: inter-word; font-weight: bold; font-size: 15px;">{{des}}</p>
+							</div><br><br>
+							
+						</div>
+						<div class="col-md-6 col-md-offset-1">
+							<h2 class="section-title">Upload Image from local storage:</h2><br><br>
+							
+							<div>
+								<div class="post">
+									
+									<div>
+																		
+											<form action="{% url 'Pollen:classifyTaxa' %}" method='post' enctype="multipart/form-data">
+											{% csrf_token %}
+											{{form}}
+										    <input type="submit" value = "Upload">
+										    </form>
+										
+									</div><br><br>
+								</div>
+
+							</div>
+							
+
+						</div>
+					</div>
+				</div>
+				
+			</main> <!-- .main-content -->
+{% endblock content %}
