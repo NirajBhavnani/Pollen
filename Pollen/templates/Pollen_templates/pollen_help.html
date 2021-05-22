@@ -1,0 +1,53 @@
+{% extends "Pollen_templates/base.html" %}
+{% load static %}
+{% block content %}
+<div class="hero" data-bg-image="{% static 'Pollen/images/dark.png' %}">
+    <main class="main-content">
+				<div class="container">
+					<div class="breadcrumb">
+						<a href="/">Home</a>
+						<span>Help</span>
+					</div>
+				</div>
+
+				<div class="fullwidth-block">
+					<div class="container">
+						<div class="row">
+							<div>
+								<div class="post">
+									<h2 class="entry-title">STEPS TO USE THE WEBSITE</h2>
+									
+									<p style="font-size: 18px; text-align: justify;text-justify: inter-word;">Want to plan an outing but worried about pollen?? Here is our website which we help to plan your outing by providing the pollen count for the next two days. Also help you to identify the various pollen species by providing the relevant information about that and allergies caused due to that pollen species. Lets have a quick walk through  how you can use our website and plan your outing.<br><br>
+
+									<ul style="font-size: 18px; text-align: justify;text-justify: inter-word; padding-left: 25px;">
+										<li>Welcome to the home page. On this page you will see four buttons: ‘Pollen-Info’, ’Predict’, ’Classify’, ’Health Issues’.</li><br>
+										<li>‘Pollen-Info’ redirects you to a predict page which has all the information related to the pollen which includes pollen definition, pollen types, pollen allergies and their symptoms.</li><br>
+										<li>‘Health Issues’ redirects you to a page which has all the information related to pollen allergies, different types of pollen allergies, diagnosis of pollen allergy, home remedies to prevent pollen allergy.</li><br>
+										<li>On the click of the ‘Predict’ it redirects you to this page on which you will see a dropdown list  of cities and a 'Predict Now' option. You have to select a city(out of Mumbai, Delhi, Kolkata, Kanyakumari, Jammu) for which the system will predict and show the pollen counts as well as risk factors associated for grass, tree and weed pollen for 3 days.</li><br>
+
+										<div class="view">
+								        <img style="width: 60%; margin: auto;" class="d-block" src="{% static 'Pollen/images/one.gif' %}"
+								          alt="Second slide">
+								        <div class="mask rgba-black-strong"></div>
+								      </div><br>
+
+										<li>'Classify' redirects you to classify page where you have to upload a clear image of the pollen species from our local storage and then click on the “Upload” then the corresponding image will appear canvas with classified pollen taxa and its related information.</li><br>
+
+										<div class="view">
+								        <img style="width: 60%; margin: auto;" class="d-block" src="{% static 'Pollen/images/two.gif' %}"
+								          alt="Second slide">
+								        <div class="mask rgba-black-strong"></div>
+								      </div><br>
+										
+									</ul>
+								</div>
+
+								
+							</div>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main> <!-- .main-content -->
+{% endblock content %}

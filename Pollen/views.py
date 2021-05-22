@@ -16,6 +16,12 @@ def home(request):
 def pollen_info(request):
 	return render(request, 'Pollen_templates/pollen_info.html', {'title': 'Pollen-Info'})
 
+def pollen_help(request):
+	return render(request, 'Pollen_templates/pollen_help.html', {'title': 'Help'})
+
+def health(request):
+	return render(request, 'Pollen_templates/health.html', {'title': 'Health Issues'})
+
 def predict(request):
 	if request.method == 'POST':
 		form = TextForm(request.POST)
@@ -44,8 +50,18 @@ def predictCity(request):
 	day1=ans[0]
 	day2=ans[1]
 	day3=ans[2]
-	print(day1)
-	context = {'city':city,'ans':ans,'temp':temp, 'title': 'Predict-City' ,'day1': day1,'day2': day2, 'day3': day3, 'day': day,'day_2': day_2, 'day_3': day_3, 'date1': date1, 'date2': date2, 'date3': date3}
+	
+	risk=[]
+	for k in ans:
+		for j in k:
+			if 0<=j<=100:
+				risk.append('Low')
+			elif 101<=j<=210:
+				risk.append('Moderate')
+			else:
+				risk.append('High')
+
+	context = {'city':city,'ans':ans,'temp':temp, 'title': 'Predict-City' ,'day1': day1,'day2': day2, 'day3': day3, 'day': day,'day_2': day_2, 'day_3': day_3, 'date1': date1, 'date2': date2, 'date3': date3, 'risk': risk}
 	return render(request, 'Pollen_templates/predict.html', context)
 
 def classify(request):

@@ -20,7 +20,7 @@
 				          <option value="Delhi">Delhi</option>
 				          <option value="Kolkata">Kolkata</option>
 				          <option value="Jammu">Jammu</option>
-				          <!-- <option value="Kanyakumari">Kanyakumari</option> -->
+				          <option value="Kanyakumari">Kanyakumari</option>
 				        </select>
 				      </div>
 				      <button type="submit" class="btn btn-primary">Predict Now!</button>
@@ -162,7 +162,11 @@
 							<div class= "col-sm-6">
 								<div class="live-camera">
 
-									<h3>The pollen count is 227, the temperature is 32<sup>o</sup>C</h3>
+									<h2>Risk Factor: 
+											<h3 class="dot1" style="display: inline;">Grass: {{risk.0}}&nbsp;</h3>
+											<h3 class="dot2" style="display: inline;">Tree: {{risk.1}}&nbsp;</h3>
+											<h3 class="dot3" style="display: inline;">Weed: {{risk.2}}&nbsp;</h3>
+									</h2>
 								</div>
 							</div>
 							
@@ -176,15 +180,19 @@
 							<div class="col-md-4">
 								<div class="news">
 									<div class="date"></div>
-									<h2>{{day_2}}</h2>
-									<p style="font-size: 18px; text-align: justify;text-justify: inter-word;">The pollen count is 228, the temperature is 35</p>
+									<h2>{{day_2}} <br> Risk Factor:</h2>
+									<p style="font-size: 18px; text-align: justify;text-justify: inter-word;" class="dot1">Grass: {{risk.3}}</p>
+									<p style="font-size: 18px; text-align: justify;text-justify: inter-word;" class="dot2">Tree: {{risk.4}}</p>
+									<p style="font-size: 18px; text-align: justify;text-justify: inter-word;" class="dot3">Weed: {{risk.5}}</p>
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="news">
 									<div class="date"></div>
-									<h2>{{day_3}}</h2>
-									<p style="font-size: 18px; text-align: justify;text-justify: inter-word;">The pollen count is 277, the temperature is 33</p>
+									<h2>{{day_3}} <br> Risk Factor:</h2>
+									<p style="font-size: 18px; text-align: justify;text-justify: inter-word;" class="dot1">Grass: {{risk.6}}</p>
+									<p style="font-size: 18px; text-align: justify;text-justify: inter-word;" class="dot2">Tree: {{risk.7}}</p>
+									<p style="font-size: 18px; text-align: justify;text-justify: inter-word;" class="dot3">Weed: {{risk.8}}</p>
 								</div>
 							</div>
 							
